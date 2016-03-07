@@ -21,19 +21,17 @@ public class CadastroActivity extends Activity {
         btnCadastro = (Button)findViewById(R.id.btnCadastrar);
     }
 
-
-
     public void buttonOnClick(View v){
         String resultado;
 
         BancoController bc = new BancoController(getBaseContext());
 
         //Capturando o conteúdo dos EditTexts
-        EditText nome = (EditText)findViewById(R.id.txtNome);
+        EditText nome = (EditText)findViewById(R.id.txtNomeLogin);
         EditText endereco = (EditText)findViewById(R.id.txtEndereco);
         EditText telefone = (EditText)findViewById(R.id.txtTelefone);
         EditText login = (EditText)findViewById(R.id.txtLogin);
-        EditText senha = (EditText)findViewById(R.id.txtSenha);
+        EditText senha = (EditText)findViewById(R.id.txtSenhaLogin);
 
         //Transformando o conteúdo capturado em string
         String nomeString = nome.getText().toString();

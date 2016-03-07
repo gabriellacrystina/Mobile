@@ -1,9 +1,13 @@
 package BD;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
+import android.widget.Toast;
+
+import java.sql.SQLException;
 
 /**
  * Created by Jean Bruno on 05/03/2016.
@@ -18,9 +22,10 @@ public class BancoController {
     }
 
     public String insertData(String nome, String endereco, String telefone, String login, String senha){
+
         ContentValues valores;
         //Eu trocaria o long por int(integer)!!!
-        long result=0;
+        long result = 0;
 
         db = banco.getWritableDatabase(); //getWritableDatabase é utilizado para informar ao banco que sera feita uma operaçao de escrita/leitura!!
         valores = new ContentValues();
@@ -30,12 +35,16 @@ public class BancoController {
         valores.put(DataBase.TELEFONE, telefone);
         valores.put(DataBase.LOGIN, login);
         valores.put(DataBase.SENHA, senha);
-        db.close();
 
+        result = db.insert(DataBase.TABELA, null, valores);
+
+        db.close();
 
         if (result ==-1)
             return "Erro ao inserir registro";
         else
             return "Registro Inserido com sucesso";
     }
+
+
 }

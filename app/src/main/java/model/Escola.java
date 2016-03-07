@@ -9,8 +9,6 @@ public class Escola {
     private String endereco;
     private String telefone;
 
-    //Definir campos!!
-
     public String getNome() {
         return nome;
     }
