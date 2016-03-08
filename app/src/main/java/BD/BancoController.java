@@ -46,5 +46,19 @@ public class BancoController {
             return "Registro Inserido com sucesso";
     }
 
+    public Boolean validaUsuário(String nome, String senha){
+        Boolean resultado = false;
 
+        Cursor cursor;
+
+        String sql = " SELECT * FROM VENDEDORES WHERE LOGIN = " + nome + " AND SENHA = " + senha;
+
+        db = banco.getReadableDatabase();
+        cursor = db.rawQuery(sql, null);
+
+        if(cursor.getCount()>0)
+            return true;
+
+        return resultado;
+    }
 }
