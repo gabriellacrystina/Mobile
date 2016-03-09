@@ -24,9 +24,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
     public void onClickBtnAcessar(View view){
 
-        Boolean permissao;
+        Boolean permissao        ;
 
         BancoController bc = new BancoController(getBaseContext());
 
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intentListaEscolas);
             }
         }
+     **/
 
-    }
+
 }

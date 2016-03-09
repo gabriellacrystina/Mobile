@@ -22,7 +22,7 @@ public class CadastroActivity extends Activity {
     }
 
     public void buttonOnClick(View v){
-        String resultado;
+        //String resultado;
 
         BancoController bc = new BancoController(getBaseContext());
 
@@ -40,9 +40,9 @@ public class CadastroActivity extends Activity {
         String loginString = login.getText().toString();
         String senhaString = senha.getText().toString();
 
-        resultado = bc.insertData(nomeString, enderecoString, telefoneString, loginString, senhaString);
+        bc.insertData(nomeString, enderecoString, telefoneString, loginString, senhaString);
 
         //Toast mostra na tela o retorno da string resultado.
-        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "BOTAO FUNCIONANDO", Toast.LENGTH_LONG).show();
     }
 }

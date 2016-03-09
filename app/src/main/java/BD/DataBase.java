@@ -10,33 +10,74 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DataBase extends SQLiteOpenHelper {
     //Classe responsável pela criaçao do banco e pelo versionamento do mesmo
 
-    public static final String NOME_BANCO = "banco.db";
-    public static final String TABELA = "vendedores";
-    public static final String ID = "_id ";
-    public static final String NOME = "nome";
-    public static final String ENDERECO = "endereco";
-    public static final String TELEFONE = "telefone";
-    public static final String LOGIN = "login";
-    public static final String SENHA = "senha";
-    public static final int VERSAO = 1;
+    //Informação da Base de dados
+    private static final String NOME_BANCO = "banco.db";
+    private static final int VERSAO = 1;
 
+    //Nome das tabelas
+    private static final String TABELA_ESCOLAS = "escolas";
+    private static final String TABELA_VENDEDORES = "vendedores";
+
+    //Campos da tabela vendedores
+    private static final String VENDEDOR_ID = "_id ";
+    private static final String VENDEDOR_NOME = "nome";
+    private static final String VENDEDOR_ENDERECO = "endereco";
+    private static final String VENDEDOR_TELEFONE = "telefone";
+    private static final String VENDEDOR_LOGIN = "login";
+    private static final String VENDEDOR_SENHA = "senha";
+
+    //Campos da tabela escolas
+    private static final String ESCOLA_ID = "_id ";
+    private static final String ESCOLA_NOME = "nome";
+    private static final String ESCOLA_ENDERECO = "endereco";
+    private static final String ESCOLA_TELEFONE = "telefone";
 
     public DataBase(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
     }
 
+    /** Called when the databases connection is being configured.
+     Configure database settings for things like foreign key support, write-ahead logging, etc.
+
+    @Override
+    public void onConfigure(SQLiteDatabase db){
+        super.onConfigure(db);
+        //db.setForeignKeyConstraintsEnabled(true);
+    }**/
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //SQLiteDatabase é a classe que contem métodos de manipulacao de dados no banco;
-        String sql = " CREATE TABLE vendedores (_id integer primary key autoincrement, NOME  text, ENDERECO  text, TELEFONE  text, LOGIN  text, SENHA   text)";
+        String CREATE_VENDEDORES_TABLE = "CREATE TABLE " + TABELA_VENDEDORES +
+                " ( " +
+                VENDEDOR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                VENDEDOR_NOME + " TEXT, " +
+                VENDEDOR_ENDERECO + " TEXT, " +
+                VENDEDOR_TELEFONE + " TEXT, " +
+                VENDEDOR_LOGIN + " TEXT, " +
+                VENDEDOR_SENHA +
+                " ) ";
 
-        db.execSQL(sql);
+        String CREATE_ESCOLAS_TABLE = "CREATE TABLE " + TABELA_ESCOLAS +
+                " ( " +
+                ESCOLA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ESCOLA_NOME + " TEXT, " +
+                ESCOLA_ENDERECO + " TEXT, " +
+                ESCOLA_TELEFONE + " TEXT, " +
+                " ) ";
+
+        db.execSQL(CREATE_VENDEDORES_TABLE);
+        db.execSQL(CREATE_VENDEDORES_TABLE);
     }
+
+    //Called when the database needs to be upgraded
+    //This method will only be called if a database already exists on disk with the same DATABASE_NAME,
+    //but the DATABASE_VERSION is different than the version of the that exists on disk.
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS" + TABELA);
+        //Simplest implementation is to drop all old tables and recreate them
+        db.execSQL("DROP TABLE IF EXISTS" + TABELA_VENDEDORES);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELA_ESCOLAS);
         onCreate(db);
     }
-
 }

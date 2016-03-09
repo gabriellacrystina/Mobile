@@ -23,6 +23,7 @@
         <activity android:name=".CadastroActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ListaEscolasActivity" />
+        <activity android:name=".CadastroEscola"></activity>
     </application>
 
 </manifest>

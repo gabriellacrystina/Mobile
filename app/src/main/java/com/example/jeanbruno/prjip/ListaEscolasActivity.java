@@ -2,12 +2,14 @@ package com.example.jeanbruno.prjip;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ public class ListaEscolasActivity extends ListActivity implements AdapterView.On
     Cursor cursor;
     SimpleCursorAdapter sca;
     ListView listViewEscolas;
+    Button btnAdicionarEscola;
 
 
     @Override
@@ -30,6 +33,8 @@ public class ListaEscolasActivity extends ListActivity implements AdapterView.On
 
         //Setar o Adapter
         criarListagem();
+
+        btnAdicionarEscola = (Button)findViewById(R.id.btnAdicionarEscola);
     }
 
     public void bucarDados(){
@@ -45,7 +50,6 @@ public class ListaEscolasActivity extends ListActivity implements AdapterView.On
     public void criarListagem(){
         //Pega o listView que conterá os itens
         listViewEscolas = getListView();
-
 
         String[] from = {"_id","nome", "endereco", "telefone"};//Nomes dos campos da tabela
         int[] to = {R.id.txvSchollid,R.id.txvSchollName, R.id.txvSchollEnd, R.id.txvSchollPhone}; //campos do model
@@ -70,5 +74,10 @@ public class ListaEscolasActivity extends ListActivity implements AdapterView.On
         String nome = sqlCursor.getString(sqlCursor.getColumnIndex("nome"));
 
         Toast.makeText(getApplicationContext(), "Selecionou o nome: " + nome, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickAdicionarEscola(View view){
+        Intent intentAdiconarEscola = new Intent(ListaEscolasActivity.this, CadastroEscola.class);
+        startActivity(intentAdiconarEscola);
     }
 }

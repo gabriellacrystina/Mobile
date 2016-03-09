@@ -16,6 +16,7 @@ public class BancoController {
 
     private SQLiteDatabase db;
     private DataBase banco;
+    private Cursor cursor;
 
     public BancoController(Context context){
         banco = new DataBase(context);
@@ -25,7 +26,7 @@ public class BancoController {
 
         ContentValues valores;
         //Eu trocaria o long por int(integer)!!!
-        long result = 0;
+        Cursor result = 0;
 
         db = banco.getWritableDatabase(); //getWritableDatabase é utilizado para informar ao banco que sera feita uma operaçao de escrita/leitura!!
         valores = new ContentValues();
@@ -36,7 +37,14 @@ public class BancoController {
         valores.put(DataBase.LOGIN, login);
         valores.put(DataBase.SENHA, senha);
 
-        result = db.insert(DataBase.TABELA, null, valores);
+
+
+        Cursor c = db.rawQuery("INSERT INTO VENDEDORES (nome, endereco, telefone, login, senha) values ('"+nome+"', '"+endereco+"','?','?','?')", null);
+
+
+        if(c.moveToLast() !=  ){
+
+        }
 
         db.close();
 
@@ -44,21 +52,20 @@ public class BancoController {
             return "Erro ao inserir registro";
         else
             return "Registro Inserido com sucesso";
+
+        /*
     }
 
     public Boolean validaUsuário(String nome, String senha){
-        Boolean resultado = false;
-
         Cursor cursor;
-
         String sql = " SELECT * FROM VENDEDORES WHERE LOGIN = " + nome + " AND SENHA = " + senha;
 
         db = banco.getReadableDatabase();
         cursor = db.rawQuery(sql, null);
 
-        if(cursor.getCount()>0)
+        if(cursor.getCount() > 0)
             return true;
 
-        return resultado;
+        return false;
     }
 }
