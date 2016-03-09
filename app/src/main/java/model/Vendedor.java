@@ -4,7 +4,6 @@ package model;
  * Created by Jean Bruno on 05/03/2016.
  */
 public class Vendedor extends Pessoa {
-
     private String login;
     private String senha;
 

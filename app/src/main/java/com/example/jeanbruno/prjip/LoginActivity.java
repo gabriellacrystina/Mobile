@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import BD.BancoController;
+import BD.DAOVendedor;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,37 +20,34 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnAcessar = (Button)findViewById(R.id.btnAcessar);
+        btnAcessar = (Button) findViewById(R.id.btnAcessar);
 
     }
 
-    /**
-    public void onClickBtnAcessar(View view){
+    public void onClickBtnAcessar(View view) {
 
-        Boolean permissao        ;
+        Boolean permissao;
 
-        BancoController bc = new BancoController(getBaseContext());
+        DAOVendedor daoVendedor = new DAOVendedor(getBaseContext());
 
-        EditText nome = (EditText)findViewById(R.id.txtNomeLogin);
-        EditText senha = (EditText)findViewById(R.id.txtSenhaLogin);
+        EditText nome = (EditText) findViewById(R.id.txtNomeLogin);
+        EditText senha = (EditText) findViewById(R.id.txtSenhaLogin);
 
         String nomeString = nome.getText().toString();
         String senhaString = senha.getText().toString();
 
-        if(nomeString.length() == 0 || senhaString.length() == 0){
+        if (nomeString.length() == 0 || senhaString.length() == 0) {
             Toast.makeText(getApplicationContext(), "Os campos login e senha são obrigatórios", Toast.LENGTH_LONG).show();
-        }else{
-            permissao = bc.validaUsuário(nomeString, senhaString);
+        } else {
+            permissao = daoVendedor.validar(nomeString, senhaString);
 
-            if(permissao == false){
+            if (permissao == false) {
                 Toast.makeText(getApplicationContext(), "Login ou senha estão incorretos", Toast.LENGTH_LONG).show();
-            }else{
+            } else {
                 Toast.makeText(getApplicationContext(), "Acesso liberado!!", Toast.LENGTH_LONG).show();
                 Intent intentListaEscolas = new Intent(LoginActivity.this, ListaEscolasActivity.class);
                 startActivity(intentListaEscolas);
             }
         }
-     **/
-
-
+    }
 }

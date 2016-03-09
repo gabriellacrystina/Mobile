@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import BD.BancoController;
+import BD.DAOVendedor;
 
 public class CadastroActivity extends Activity {
 
@@ -22,9 +22,9 @@ public class CadastroActivity extends Activity {
     }
 
     public void buttonOnClick(View v){
-        //String resultado;
+        String resultado;
 
-        BancoController bc = new BancoController(getBaseContext());
+        DAOVendedor daoVendedor = new DAOVendedor(getBaseContext());
 
         //Capturando o conteúdo dos EditTexts
         EditText nome = (EditText)findViewById(R.id.txtNomeLogin);
@@ -40,9 +40,9 @@ public class CadastroActivity extends Activity {
         String loginString = login.getText().toString();
         String senhaString = senha.getText().toString();
 
-        bc.insertData(nomeString, enderecoString, telefoneString, loginString, senhaString);
+        resultado = daoVendedor.inserir(nomeString, enderecoString, telefoneString, loginString, senhaString);
 
         //Toast mostra na tela o retorno da string resultado.
-        Toast.makeText(getApplicationContext(), "BOTAO FUNCIONANDO", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
     }
 }

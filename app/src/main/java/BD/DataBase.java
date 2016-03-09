@@ -11,26 +11,26 @@ public class DataBase extends SQLiteOpenHelper {
     //Classe responsável pela criaçao do banco e pelo versionamento do mesmo
 
     //Informação da Base de dados
-    private static final String NOME_BANCO = "banco.db";
-    private static final int VERSAO = 1;
+    protected static final String NOME_BANCO = "banco.db";
+    protected static final int VERSAO = 1;
 
     //Nome das tabelas
-    private static final String TABELA_ESCOLAS = "escolas";
-    private static final String TABELA_VENDEDORES = "vendedores";
+    protected static final String TABELA_ESCOLAS = "escolas";
+    protected static final String TABELA_VENDEDORES = "vendedores";
 
     //Campos da tabela vendedores
-    private static final String VENDEDOR_ID = "_id ";
-    private static final String VENDEDOR_NOME = "nome";
-    private static final String VENDEDOR_ENDERECO = "endereco";
-    private static final String VENDEDOR_TELEFONE = "telefone";
-    private static final String VENDEDOR_LOGIN = "login";
-    private static final String VENDEDOR_SENHA = "senha";
+    protected static final String VENDEDOR_ID = "_id ";
+    protected static final String VENDEDOR_NOME = "nome";
+    protected static final String VENDEDOR_ENDERECO = "endereco";
+    protected static final String VENDEDOR_TELEFONE = "telefone";
+    protected static final String VENDEDOR_LOGIN = "login";
+    protected static final String VENDEDOR_SENHA = "senha";
 
     //Campos da tabela escolas
-    private static final String ESCOLA_ID = "_id ";
-    private static final String ESCOLA_NOME = "nome";
-    private static final String ESCOLA_ENDERECO = "endereco";
-    private static final String ESCOLA_TELEFONE = "telefone";
+    protected static final String ESCOLA_ID = "_id ";
+    protected static final String ESCOLA_NOME = "nome";
+    protected static final String ESCOLA_ENDERECO = "endereco";
+    protected static final String ESCOLA_TELEFONE = "telefone";
 
     public DataBase(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
