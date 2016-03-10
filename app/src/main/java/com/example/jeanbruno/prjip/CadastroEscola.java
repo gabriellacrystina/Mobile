@@ -26,9 +26,9 @@ public class CadastroEscola extends AppCompatActivity {
         String resultado;
         DAOEscola daoEscola = new DAOEscola(getBaseContext());
 
-        EditText nomeEscola = (EditText)findViewById(R.id.editText);
-        EditText enderecoEscola = (EditText)findViewById(R.id.editText2);
-        EditText telefoneEscola = (EditText)findViewById(R.id.editText3);
+        EditText nomeEscola = (EditText)findViewById(R.id.editText4);
+        EditText enderecoEscola = (EditText)findViewById(R.id.editText5);
+        EditText telefoneEscola = (EditText)findViewById(R.id.editText6);
 
         String nomeEscolaString = nomeEscola.getText().toString();
         String enderecoEscolaString = enderecoEscola.getText().toString();

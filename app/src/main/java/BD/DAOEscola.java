@@ -39,6 +39,30 @@ public class DAOEscola {
             return "Regristro inserido com sucesso!!";
     }
 
+    public String alterar(int id, String nome, String endereco, String telefone){
+        long r;
+        ContentValues valores;
+        String where;
+
+        System.out.println("Classe DAOEscola dentro do método alterar os parâmetros recebidos são: ID " + id +
+                            " Nome " +nome+ " Endereco " +endereco+ " Telefone " +telefone);
+
+        db = banco.getWritableDatabase();
+        where = DataBase.ESCOLA_ID + " = " + id;
+        valores = new ContentValues();
+
+        valores.put(DataBase.ESCOLA_NOME, nome);
+        valores.put(DataBase.ESCOLA_ENDERECO, endereco);
+        valores.put(DataBase.ESCOLA_TELEFONE, telefone);
+
+        r = db.update(DataBase.TABELA_ESCOLAS, valores, where, null);
+        db.close();
+
+        if(r == -1)
+            return "Erro ao alterar registro.";
+        else
+            return "Regristro alterado com sucesso!!";
+    }
 
     public Cursor carregaDados(){
         Cursor cursor;
@@ -49,6 +73,21 @@ public class DAOEscola {
         if (cursor != null){
             cursor.moveToFirst();
         }
+        db.close();
+        return  cursor;
+    }
+
+    public Cursor carregaDadoById(int id){
+        Cursor cursor;
+        String[] campos = {banco.ESCOLA_ID, banco.ESCOLA_NOME, banco.ESCOLA_ENDERECO, banco.ESCOLA_TELEFONE};
+        String where = banco.ESCOLA_ID + " = " + id;
+        db = banco.getReadableDatabase();
+        cursor = db.query(DataBase.TABELA_ESCOLAS, campos, where, null, null, null, null);
+
+        if (cursor != null){
+            cursor.moveToFirst();
+        }
+        db.close();
         return  cursor;
     }
 }

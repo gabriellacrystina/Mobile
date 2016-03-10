@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jeanbruno.prjip.CadastroEscola">
+    tools:context="com.example.jeanbruno.prjip.Editar_Excluir_Escola">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/editText4"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -36,14 +36,14 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Endereço"
         android:id="@+id/textView2"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/editText4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/editText5"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -56,7 +56,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Telefone"
         android:id="@+id/textView4"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/editText5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -65,26 +65,26 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/editText6"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignRight="@+id/editText5"
+        android:layout_alignEnd="@+id/editText5" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar"
         android:id="@+id/btnEditarEscola"
-        android:onClick="BotaoCadastrarEscola"
         android:clickable="true"
         android:layout_marginBottom="39dp"
         android:layout_above="@+id/btnExcluirEscola"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3" />
+        android:layout_alignRight="@+id/editText6"
+        android:layout_alignEnd="@+id/editText6"
+        android:onClick="botaoEditarEscola" />
 
     <Button
         android:layout_width="wrap_content"
@@ -96,4 +96,5 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/btnEditarEscola"
         android:layout_alignEnd="@+id/btnEditarEscola" />
+
 </RelativeLayout>
