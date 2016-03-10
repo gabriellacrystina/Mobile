@@ -19,7 +19,6 @@ public class DAOEscola {
         banco = new DataBase(context);
     }
 
-
     public String inserir(String nome, String endereco, String telefone){
         ContentValues valores;
         long resultado;
@@ -38,5 +37,18 @@ public class DAOEscola {
             return "Erro ao inserir registro.";
         else
             return "Regristro inserido com sucesso!!";
+    }
+
+
+    public Cursor carregaDados(){
+        Cursor cursor;
+        String[] campos = {banco.ESCOLA_ID, banco.ESCOLA_NOME};
+        db = banco.getReadableDatabase();
+        cursor = db.query(banco.TABELA_ESCOLAS, campos, null, null, null, null, null);
+
+        if (cursor != null){
+            cursor.moveToFirst();
+        }
+        return  cursor;
     }
 }

@@ -36,6 +36,10 @@ public class CadastroEscola extends AppCompatActivity {
 
         resultado = daoEscola.inserir(nomeEscolaString, enderecoEscolaString, telefoneEscolaString);
 
+        nomeEscola.setText("");
+        enderecoEscola.setText("");
+        telefoneEscola.setText("");
+
         Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
     }
 }

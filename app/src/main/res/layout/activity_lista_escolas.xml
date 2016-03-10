@@ -32,10 +32,9 @@
         android:longClickable="false"
         android:clickable="true" />
 
-    <ListView android:id="@android:id/list"
+    <ListView android:id="@+id/listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#362525"
         android:layout_below="@+id/btnAdicionarEscola" />
 
 </RelativeLayout>
