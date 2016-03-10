@@ -11,33 +11,31 @@ import BD.DAOEscola;
 
 public class CadastroEscola extends AppCompatActivity {
 
-    Button btnAdicionarEscola;
-
+    Button btnCadastrarEscola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_escola);
 
-        btnAdicionarEscola = (Button)findViewById(R.id.btnAdicionarEscola);
+        btnCadastrarEscola = (Button)findViewById(R.id.btnCadastrarEscola);
 
     }
 
-    /**
-    public void onClickButtonAdcionarEscola(View view){
+    public void BotaoCadastrarEscola(View view){
         String resultado;
-        DAOEscola daoEscola = new DAOEscola();
+        DAOEscola daoEscola = new DAOEscola(getBaseContext());
 
-        EditText nomeEscola = (EditText)findViewById(R.id.txvSchollName);
-        EditText enderecoEscola = (EditText)findViewById(R.id.txvSchollEnd);
-        EditText telefoneEscola = (EditText)findViewById(R.id.txvSchollPhone);
+        EditText nomeEscola = (EditText)findViewById(R.id.editText);
+        EditText enderecoEscola = (EditText)findViewById(R.id.editText2);
+        EditText telefoneEscola = (EditText)findViewById(R.id.editText3);
 
         String nomeEscolaString = nomeEscola.getText().toString();
         String enderecoEscolaString = enderecoEscola.getText().toString();
         String telefoneEscolaString = telefoneEscola.getText().toString();
 
-        resultado = daoEscola.insereEscola(nomeEscolaString, enderecoEscolaString, telefoneEscolaString);
+        resultado = daoEscola.inserir(nomeEscolaString, enderecoEscolaString, telefoneEscolaString);
 
         Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
-    }**/
+    }
 }

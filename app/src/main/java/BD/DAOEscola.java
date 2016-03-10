@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
 
 /**
  * Created by Jean Bruno on 07/03/2016.
@@ -18,17 +19,24 @@ public class DAOEscola {
         banco = new DataBase(context);
     }
 
-    /**
-    public String insereEscola(String nome, String endereco, String telefone){
-        String r ="";
 
+    public String inserir(String nome, String endereco, String telefone){
         ContentValues valores;
-        long result = 0;
+        long resultado;
 
         db = banco.getWritableDatabase();
         valores = new ContentValues();
 
-        return r;
-        //valores.put(DataBase.);
-    }**/
+        valores.put(DataBase.ESCOLA_NOME, nome);
+        valores.put(DataBase.ESCOLA_ENDERECO, endereco);
+        valores.put(DataBase.ESCOLA_TELEFONE, telefone);
+
+        resultado = db.insert(DataBase.TABELA_ESCOLAS, null, valores);
+        db.close();
+
+        if(resultado == -1)
+            return "Erro ao inserir registro.";
+        else
+            return "Regristro inserido com sucesso!!";
+    }
 }

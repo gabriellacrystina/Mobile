@@ -4,10 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
-
-import model.Vendedor;
-
 
 /**
  * Created by Jean Bruno on 05/03/2016.
@@ -39,10 +35,14 @@ public class DAOVendedor {
 
         resultado = db.insert(DataBase.TABELA_VENDEDORES, null, valores);
 
+        db.close();
+
         if(resultado == -1)
             return "Erro ao inserir registro.";
         else
             return "Regristro inserido com sucesso!!";
+
+
     }
 
     public Boolean validar(String login, String senha){
