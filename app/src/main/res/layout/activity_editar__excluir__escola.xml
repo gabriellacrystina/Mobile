@@ -95,6 +95,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/btnEditarEscola"
-        android:layout_alignEnd="@+id/btnEditarEscola" />
+        android:layout_alignEnd="@+id/btnEditarEscola"
+        android:onClick="botaoExcluirEscola"
+        android:clickable="true" />
 
 </RelativeLayout>

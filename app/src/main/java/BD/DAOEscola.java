@@ -44,9 +44,6 @@ public class DAOEscola {
         ContentValues valores;
         String where;
 
-        System.out.println("Classe DAOEscola dentro do método alterar os parâmetros recebidos são: ID " + id +
-                            " Nome " +nome+ " Endereco " +endereco+ " Telefone " +telefone);
-
         db = banco.getWritableDatabase();
         where = DataBase.ESCOLA_ID + " = " + id;
         valores = new ContentValues();
@@ -89,5 +86,18 @@ public class DAOEscola {
         }
         db.close();
         return  cursor;
+    }
+
+    public String excluir(int id){
+        long resultado;
+        String where = DataBase.ESCOLA_ID + " = " + id;
+        db = banco.getReadableDatabase();
+        resultado = db.delete(DataBase.TABELA_ESCOLAS, where, null);
+        db.close();
+
+        if(resultado == -1)
+            return "Erro ao excluir o registro.";
+        else
+            return "Regristro excluido com sucesso!!";
     }
 }

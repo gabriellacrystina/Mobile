@@ -28,10 +28,12 @@ public class Editar_Excluir_Escola extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar__excluir__escola);
 
+        btnExcluir = (Button)findViewById(R.id.btnExcluirEscola);
+
         codigo = this.getIntent().getStringExtra("codigo");
 
         daoEscola = new DAOEscola(getBaseContext());
-        
+
         nome = (EditText)findViewById(R.id.editText4);
         endereco = (EditText)findViewById(R.id.editText5);
         telefone = (EditText)findViewById(R.id.editText6);
@@ -62,6 +64,16 @@ public class Editar_Excluir_Escola extends AppCompatActivity {
 
 
         resultado = daoEscola.alterar(Integer.parseInt(codigo),nomeString, enderecoString, telefoneString );
+        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(Editar_Excluir_Escola.this, ListaEscolasActivity.class);
+        startActivity(intent);
+    }
+
+    public void botaoExcluirEscola(View view){
+        String resultado;
+        resultado = daoEscola.excluir(Integer.parseInt(codigo));
+
         Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(Editar_Excluir_Escola.this, ListaEscolasActivity.class);
