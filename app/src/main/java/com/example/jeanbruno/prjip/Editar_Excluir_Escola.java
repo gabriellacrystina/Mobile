@@ -56,7 +56,7 @@ public class Editar_Excluir_Escola extends AppCompatActivity {
 
         nomeEditado = (EditText)findViewById(R.id.editText4);
         enderecoEditado = (EditText)findViewById(R.id.editText5);
-        telefoneEditado = (EditText)findViewById(R.id.editText5);
+        telefoneEditado = (EditText)findViewById(R.id.editText6);
 
         String nomeString = nomeEditado.getText().toString();
         String enderecoString = enderecoEditado.getText().toString();

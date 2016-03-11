@@ -11,27 +11,25 @@ import android.widget.Button;
 import android.widget.ListView;
 
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends Activity {
 
-    /**
+
     Button botaoCadastro;
     Button botaoEfetuarLogin;
-    **/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-
-        String[] menus = {"Efetuar Login", "Efetuar Cadastro"};
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, menus);
-
-        setListAdapter(adapter);
+        setContentView(R.layout.activity_main);
 
         /**
+        String[] menus = {"Efetuar Login", "Efetuar Cadastro"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, menus);
+        setListAdapter(adapter);
+         **/
+
         botaoCadastro = (Button)findViewById(R.id.btnEfetuarCadastro);
-        botaoEfetuarLogin = (Button)findViewById(R.id.btnEfetuarCadastro);
+        botaoEfetuarLogin = (Button)findViewById(R.id.btnEfetuarLogin);
 
         //No evento clik do botao Cadastro é criado uma intencao de transicao de tela.
        botaoCadastro.setOnClickListener(new View.OnClickListener() {
@@ -40,18 +38,14 @@ public class MainActivity extends ListActivity {
                Intent intentCadastro = new Intent(MainActivity.this, CadastroActivity.class);
                 startActivity(intentCadastro);
             }
-        });{
-        }
-         **/
+        });
     }
-    /**
     public void onClickEfetuarLogin(View view){
         Intent intentLogin = new Intent(MainActivity.this, LoginActivity.class);
          startActivity(intentLogin);
         //teste
     }
-     **/
-
+    /**
     @Override
     protected void onListItemClick(ListView lv, View view, int position, long id ){
         super.onListItemClick(lv, view, position, id);
@@ -68,4 +62,5 @@ public class MainActivity extends ListActivity {
         }
 
     }
+    **/
 }

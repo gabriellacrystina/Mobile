@@ -1,5 +1,6 @@
 package com.example.jeanbruno.prjip;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +41,10 @@ public class CadastroEscola extends AppCompatActivity {
         enderecoEscola.setText("");
         telefoneEscola.setText("");
 
+
         Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(CadastroEscola.this, ListaEscolasActivity.class);
+        startActivity(intent);
     }
 }

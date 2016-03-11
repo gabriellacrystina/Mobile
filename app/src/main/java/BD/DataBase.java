@@ -54,7 +54,7 @@ public class DataBase extends SQLiteOpenHelper {
                 VENDEDOR_ENDERECO + " TEXT, " +
                 VENDEDOR_TELEFONE + " TEXT, " +
                 VENDEDOR_LOGIN + " TEXT, " +
-                VENDEDOR_SENHA +
+                VENDEDOR_SENHA + " TEXT " +
                 " ) ";
 
         String CREATE_ESCOLAS_TABLE = "CREATE TABLE " + TABELA_ESCOLAS +
@@ -62,11 +62,11 @@ public class DataBase extends SQLiteOpenHelper {
                 ESCOLA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ESCOLA_NOME + " TEXT, " +
                 ESCOLA_ENDERECO + " TEXT, " +
-                ESCOLA_TELEFONE + " TEXT, " +
+                ESCOLA_TELEFONE + " TEXT " +
                 " ) ";
 
         db.execSQL(CREATE_VENDEDORES_TABLE);
-        db.execSQL(CREATE_VENDEDORES_TABLE);
+        db.execSQL(CREATE_ESCOLAS_TABLE);
     }
 
     //Called when the database needs to be upgraded
